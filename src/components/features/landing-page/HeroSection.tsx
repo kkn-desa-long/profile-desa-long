@@ -1,5 +1,5 @@
 import React from "react";
-import { Users, ArrowRight, Star, Award } from "lucide-react";
+import { Users, ArrowRight, Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -12,21 +12,14 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 px-4 py-2 text-sm font-medium">
-              🌿 Selamat Datang di Desa Long
+              🌿 Selamat Datang di
             </Badge>
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight">
-                Desa
-                <span className="block bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  Modern
-                </span>
-                <span className="text-4xl lg:text-5xl text-slate-600">
-                  yang Berkelanjutan
-                </span>
+              <h1 className="text-5xl lg:text-7xl font-bold text-slate-900">
+                Desa <span className="text-teal-600">Long</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed max-w-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                lacinia odio vitae vestibulum. Sed consectetur
+                Kecamatan Dampelas, Kabupaten Donggala, Sulawesi Tengah.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -37,31 +30,6 @@ export default function HeroSection() {
                 Jelajahi Desa
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 text-lg"
-              >
-                Tonton Video
-              </Button>
-            </div>
-            <div className="flex items-center space-x-8 pt-4">
-              <div className="flex items-center space-x-2">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full border-2 border-white"></div>
-                </div>
-                <span className="text-sm text-slate-600">
-                  2,450+ Penduduk Bahagia
-                </span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                <span className="text-sm font-medium text-slate-700">
-                  4.9/5 Rating Kepuasan
-                </span>
-              </div>
             </div>
           </div>
           <div className="relative">

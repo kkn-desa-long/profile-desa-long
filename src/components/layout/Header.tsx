@@ -1,7 +1,7 @@
-import { TreePine } from "lucide-react";
+// import { TreePine } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
 
 export default function Header() {
   return (
@@ -9,9 +9,12 @@ export default function Header() {
       <div className="px-24 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
-              <TreePine className="w-7 h-7 text-white" />
-            </div>
+            <Image
+              src="/donggalakab_logo.png"
+              width={45}
+              height={45}
+              alt="donggala logo"
+            />
             <div>
               <h1 className="text-2xl font-bold text-slate-900">Desa Long</h1>
               <p className="text-sm text-slate-600">Kabupaten Donggala</p>
@@ -34,13 +37,7 @@ export default function Header() {
               href="#layanan"
               className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
             >
-              Layanan
-            </Link>
-            <Link
-              href="#berita"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              Berita
+              Galeri
             </Link>
             <Link
               href="#kontak"
@@ -49,9 +46,6 @@ export default function Header() {
               Kontak
             </Link>
           </nav>
-          <Button className="hidden md:flex bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg">
-            Hubungi Kami
-          </Button>
         </div>
       </div>
     </header>
