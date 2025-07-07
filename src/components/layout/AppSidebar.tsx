@@ -168,7 +168,7 @@ export default function AppSidebar({
                   <SidebarMenuItem key={navItem.title}>
                     <SidebarMenuButton
                       asChild
-                      isActive={pathname.includes("/dashboard/" + navItem.url)}
+                      isActive={pathname.includes("/dashboard" + navItem.url)}
                     >
                       <Link href={"/dashboard" + navItem.url}>
                         {navItem.title}
