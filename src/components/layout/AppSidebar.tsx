@@ -169,6 +169,7 @@ export default function AppSidebar({
                     <SidebarMenuButton
                       asChild
                       isActive={pathname.includes("/dashboard" + navItem.url)}
+                      className="hover:bg-emerald-500 hover:text-white data-[active=true]:bg-emerald-600 data-[active=true]:text-white"
                     >
                       <Link href={"/dashboard" + navItem.url}>
                         {navItem.title}
