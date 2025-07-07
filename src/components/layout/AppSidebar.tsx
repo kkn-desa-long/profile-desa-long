@@ -28,19 +28,88 @@ interface NavItem {
 }
 
 interface NavGroup {
-  title: string;
-  path: string;
+  label: string;
   items: NavItem[];
 }
 
 const SIDEBAR_NAV: NavGroup[] = [
   {
-    title: "Assets",
-    path: "assets",
+    label: "Pemerintahan Desa",
     items: [
       {
-        title: "Gallery",
-        url: "/gallery",
+        title: "Struktur Pemerintahan",
+        url: "/pemerintahan",
+      },
+      {
+        title: "Sambutan Kepala Desa",
+        url: "/sambutan-kepala-desa",
+      },
+    ],
+  },
+  {
+    label: "Statistik Kependudukan",
+    items: [
+      {
+        title: "Populasi",
+        url: "/statistik/populasi",
+      },
+      {
+        title: "Pendidikan",
+        url: "/statistik/pendidikan",
+      },
+      {
+        title: "Kelompok Umur",
+        url: "/statistik/usia",
+      },
+      {
+        title: "Pekerjaan",
+        url: "/statistik/pekerjaan",
+      },
+      {
+        title: "Status Perkawinan",
+        url: "/statistik/perkawinan",
+      },
+      {
+        title: "Suku",
+        url: "/statistik/suku",
+      },
+    ],
+  },
+  {
+    label: "Data Master",
+    items: [
+      {
+        title: "Data Pendidikan",
+        url: "/master/pendidikan",
+      },
+      {
+        title: "Data Rentang Usia",
+        url: "/master/rentang-usia",
+      },
+      {
+        title: "Data Pekerjaan",
+        url: "/master/pekerjaan",
+      },
+      {
+        title: "Data Status Perkawinan",
+        url: "/master/status-perkawinan",
+      },
+      {
+        title: "Data Suku",
+        url: "/master/suku",
+      },
+      {
+        title: "Data Kewarganegaraan",
+        url: "/master/kewarganegaraan",
+      },
+    ],
+  },
+  {
+    label: "Aset Desa",
+    items: [
+      {
+        title: "Galeri",
+        url: "/galeri",
       },
     ],
   },
@@ -91,17 +160,15 @@ export default function AppSidebar({
       </SidebarHeader>
       <SidebarContent>
         {SIDEBAR_NAV.map((navGroup) => (
-          <SidebarGroup key={navGroup.title}>
-            <SidebarGroupLabel>{navGroup.title}</SidebarGroupLabel>
+          <SidebarGroup key={navGroup.label}>
+            <SidebarGroupLabel>{navGroup.label}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {navGroup.items.map((navItem) => (
                   <SidebarMenuItem key={navItem.title}>
                     <SidebarMenuButton
                       asChild
-                      isActive={pathname.includes(
-                        "/dashboard/" + navGroup.path + navItem.url
-                      )}
+                      isActive={pathname.includes("/dashboard/" + navItem.url)}
                     >
                       <Link href={"/dashboard" + navItem.url}>
                         {navItem.title}
