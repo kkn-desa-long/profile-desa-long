@@ -144,17 +144,19 @@ export default function AppSidebar({
   return (
     <Sidebar {...props}>
       <SidebarHeader className="mb-2">
-        <Link href="/" className="flex items-center space-x-2 p-1">
-          <Image
-            src="/donggalakab_logo.png"
-            width={36}
-            height={36}
-            alt="donggala logo"
-            className="-mb-1.5"
-          />
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">Desa Long</h1>
-            <p className="text-sm text-slate-600">Kabupaten Donggala</p>
+        <Link href="/">
+          <div className="flex items-center space-x-2 p-1">
+            <Image
+              src="/donggalakab_logo.png"
+              width={36}
+              height={36}
+              alt="donggala logo"
+              className="-mb-1.5"
+            />
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">Desa Long</h1>
+              <p className="text-sm text-slate-600">Kabupaten Donggala</p>
+            </div>
           </div>
         </Link>
       </SidebarHeader>
