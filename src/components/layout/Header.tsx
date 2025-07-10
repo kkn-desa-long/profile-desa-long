@@ -22,28 +22,28 @@ export default function Header() {
           </div>
           <nav className="hidden lg:flex space-x-8">
             <Link
-              href="#beranda"
+              href="/"
               className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
             >
               Beranda
             </Link>
             <Link
-              href="#profil"
+              href="/profil"
               className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
             >
               Profil Desa
             </Link>
             <Link
-              href="#layanan"
+              href="/infografis"
+              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
+            >
+              Infografis
+            </Link>
+            <Link
+              href="/galeri"
               className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
             >
               Galeri
-            </Link>
-            <Link
-              href="#kontak"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              Kontak
             </Link>
           </nav>
         </div>

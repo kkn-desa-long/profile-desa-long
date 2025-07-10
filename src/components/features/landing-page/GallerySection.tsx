@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -7,16 +8,24 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 export default function GallerySection() {
   return (
     <section className="py-24 px-24 bg-white">
-      <div className="mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+      <div className="flex justify-between items-center mb-12">
+        <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
           Jelajahi Desa Kami
         </h2>
+        <Button
+          size="lg"
+          className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 text-lg group"
+        >
+          Lihat lebih banyak
+          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </Button>
       </div>
       <Carousel>
         <CarouselContent className="-ml-1">

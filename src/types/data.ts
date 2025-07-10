@@ -1,9 +1,8 @@
 export interface DataPenduduk {
-  id: number;
+  id: string;
   numberOfMale: number;
   numberOfFemale: number;
   numberOfHeadFamily: number;
   numberOfFamilyMembers: number;
   dusunId: number;
-  rtId: number;
 }
