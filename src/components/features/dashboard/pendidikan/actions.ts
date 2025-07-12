@@ -57,7 +57,7 @@ async function createEducation(
     };
   }
 
-  revalidatePath("/dashboard/pendidikan", "layout");
+  revalidatePath("/dashboard/master/pendidikan", "layout");
 
   return {
     status: "success",
@@ -101,7 +101,7 @@ async function updateEducation(
     };
   }
 
-  revalidatePath("/dashboard/pendidikan", "layout");
+  revalidatePath("/dashboard/master/pendidikan", "layout");
 
   return {
     status: "success",
@@ -142,7 +142,7 @@ async function deleteEducation(
     };
   }
 
-  revalidatePath("/dashboard/pendidikan", "layout");
+  revalidatePath("/dashboard/master/pendidikan", "layout");
 
   return {
     status: "success",
