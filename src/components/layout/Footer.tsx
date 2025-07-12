@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p className="text-slate-400">
-          © {new Date().getFullYear()} Desa Long. Semua hak cipta dilindungi.
+          © 2025 Desa Long. KKN UNTAD 112.
         </p>
       </div>
     </footer>

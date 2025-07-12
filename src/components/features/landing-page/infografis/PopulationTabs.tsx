@@ -18,6 +18,7 @@ export default function PopulationTabs() {
       <EducationSection />
       <JobSection />
       <TribeSection />
+      <p className="text-end">Juni, 2025</p>
     </>
   );
 }

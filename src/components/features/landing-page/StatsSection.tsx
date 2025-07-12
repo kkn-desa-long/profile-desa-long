@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { dataPenduduk } from "@/constants/data";
+import { villagersPopulation } from "@/constants/data";
 import { ArrowRight, Mars, UserRound, UsersRound, Venus } from "lucide-react";
 import StatsCard from "../../StatsCard";
 import React, { useMemo } from "react";
@@ -7,28 +7,28 @@ import React, { useMemo } from "react";
 export default function StatsSection() {
   const numberOfCitizens = useMemo(() => {
     let total = 0;
-    for (const penduduk of dataPenduduk) {
+    for (const penduduk of villagersPopulation) {
       total += penduduk.numberOfMale + penduduk.numberOfFemale;
     }
     return total;
   }, []);
   const numberOfHeadFamily = useMemo(() => {
     let total = 0;
-    for (const penduduk of dataPenduduk) {
+    for (const penduduk of villagersPopulation) {
       total += penduduk.numberOfHeadFamily;
     }
     return total;
   }, []);
   const numberOfFemale = useMemo(() => {
     let total = 0;
-    for (const penduduk of dataPenduduk) {
+    for (const penduduk of villagersPopulation) {
       total += penduduk.numberOfFemale;
     }
     return total;
   }, []);
   const numberOfMale = useMemo(() => {
     let total = 0;
-    for (const penduduk of dataPenduduk) {
+    for (const penduduk of villagersPopulation) {
       total += penduduk.numberOfMale;
     }
     return total;

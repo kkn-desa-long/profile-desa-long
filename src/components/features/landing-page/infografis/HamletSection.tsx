@@ -8,15 +8,8 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Pie, PieChart } from "recharts";
-import React from "react";
-
-const pieChartData = [
-  { name: "dusun1", total: 275, fill: "var(--color-blue-500)" },
-  { name: "dusun2", total: 200, fill: "var(--color-red-500)" },
-  { name: "dusun3", total: 187, fill: "var(--color-green-500)" },
-  { name: "dusun4", total: 173, fill: "var(--color-yellow-500)" },
-  { name: "dusun5", total: 90, fill: "var(--color-purple-500)" },
-];
+import React, { useMemo } from "react";
+import { villagersPopulation } from "@/constants/data";
 
 const chartConfig = {
   total: {
@@ -44,7 +37,26 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
+const hamletsColor: { [key: string]: string } = {
+  1: "var(--color-chart-1)",
+  2: "var(--color-chart-2)",
+  3: "var(--color-chart-3)",
+  4: "var(--color-chart-4)",
+  5: "var(--color-chart-5)",
+};
+
 export default function HamletSection() {
+  const chartData = useMemo(() => {
+    return villagersPopulation.map((value) => {
+      return {
+        id: value.id,
+        name: `dusun${value.dusun}`,
+        total: value.numberOfFemale + value.numberOfMale,
+        fill: `${hamletsColor[value.id]}`,
+      };
+    });
+  }, []);
+
   return (
     <Card className="">
       <CardHeader>
@@ -59,7 +71,7 @@ export default function HamletSection() {
         >
           <PieChart>
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-            <Pie data={pieChartData} dataKey="total" label nameKey="name" />
+            <Pie data={chartData} dataKey="total" label nameKey="name" />
             <ChartLegend
               content={<ChartLegendContent nameKey="name" payload={1} />}
             />
@@ -68,26 +80,12 @@ export default function HamletSection() {
         <div>
           <h3 className="text-xl font-semibold">Keterangan</h3>
           <ul>
-            <li className="flex items-center gap-2">
-              <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-              Dusun 1 : 100
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-              Dusun 2 : 100
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-              Dusun 3 : 100
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-3 h-3 bg-orange-500 rounded-full"></span>
-              Dusun 4 : 100
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
-              Dusun 5 : 100
-            </li>
+            {chartData.map((value) => (
+              <li key={value.name} className="flex items-center gap-2">
+                <span className={`w-3 h-3 bg-black rounded-full`}></span>
+                Dusun {value.id} : {value.total}
+              </li>
+            ))}
           </ul>
         </div>
       </CardContent>
