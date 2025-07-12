@@ -3,6 +3,7 @@ import { villagersPopulation } from "@/constants/data";
 import { ArrowRight, Mars, UserRound, UsersRound, Venus } from "lucide-react";
 import StatsCard from "../../StatsCard";
 import React, { useMemo } from "react";
+import Link from "next/link";
 
 export default function StatsSection() {
   const numberOfCitizens = useMemo(() => {
@@ -40,15 +41,16 @@ export default function StatsSection() {
         <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
           Data Penduduk
         </h2>
-        <Button
-          size="lg"
-          className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 text-lg group"
-        >
-          Detail
-          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <Link href={"/infografis"}>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 text-lg group"
+          >
+            Detail
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
       </div>
-
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
         <StatsCard
           amount={numberOfCitizens}

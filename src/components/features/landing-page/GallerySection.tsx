@@ -10,6 +10,7 @@ import {
 import { PLACEHOLDER_IMG_URL } from "@/constants";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function GallerySection() {
@@ -19,39 +20,43 @@ export default function GallerySection() {
         <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
           Jelajahi Desa Kami
         </h2>
-        <Button
-          size="lg"
-          className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 text-lg group"
-        >
-          Lihat lebih banyak
-          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <Link href={"/galeri"}>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-4 text-lg group"
+          >
+            Lihat lebih banyak
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
       </div>
       <Carousel>
         <CarouselContent className="-ml-1">
           {Array.from({ length: 6 }).map((_, index) => (
             <CarouselItem className="basis-1/3 px-2" key={index}>
-              <Card>
-                <CardHeader>
-                  <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4">
-                    <Image
-                      src={PLACEHOLDER_IMG_URL}
-                      fill
-                      alt="gambar"
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardTitle className="text-2xl font-semibold">
-                    E-Government
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600 leading-relaxed">
-                    Layanan administrasi digital 24/7 untuk kemudahan akses
-                    dokumen kependudukan
-                  </p>
-                </CardContent>
-              </Card>
+              <Link href={`/galeri/${index}`}>
+                <Card>
+                  <CardHeader>
+                    <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4">
+                      <Image
+                        src={PLACEHOLDER_IMG_URL}
+                        fill
+                        alt="gambar"
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardTitle className="text-2xl font-semibold">
+                      E-Government
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 leading-relaxed">
+                      Layanan administrasi digital 24/7 untuk kemudahan akses
+                      dokumen kependudukan
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>

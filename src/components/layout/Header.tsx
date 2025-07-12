@@ -1,9 +1,11 @@
-// import { TreePine } from "lucide-react";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export default function Header() {
+  const pathname = usePathname();
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50 shadow-sm">
       <div className="px-24 py-4">
@@ -25,25 +27,35 @@ export default function Header() {
           <nav className="hidden lg:flex space-x-8">
             <Link
               href="/"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
+              className={`${
+                pathname === "/" ? "text-emerald-600" : "text-slate-700"
+              } hover:text-emerald-600 font-medium transition-colors`}
             >
               Beranda
             </Link>
             <Link
               href="/profil"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
+              className={`${
+                pathname === "/profil" ? "text-emerald-600" : "text-slate-700"
+              } hover:text-emerald-600 font-medium transition-colors`}
             >
               Profil Desa
             </Link>
             <Link
               href="/infografis"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
+              className={`${
+                pathname === "/infografis"
+                  ? "text-emerald-600"
+                  : "text-slate-700"
+              } hover:text-emerald-600 font-medium transition-colors`}
             >
               Infografis
             </Link>
             <Link
               href="/galeri"
-              className="text-slate-700 hover:text-emerald-600 font-medium transition-colors"
+              className={`${
+                pathname === "/galeri" ? "text-emerald-600" : "text-slate-700"
+              } hover:text-emerald-600 font-medium transition-colors`}
             >
               Galeri
             </Link>
