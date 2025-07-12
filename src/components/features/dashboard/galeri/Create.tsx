@@ -61,7 +61,7 @@ export default function CreateGallery({
   return (
     <form action={formAction} className="grid gap-4 mt-4">
       <div className="grid gap-2">
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">Judul</Label>
         <Input
           type="text"
           id="title"
@@ -74,7 +74,7 @@ export default function CreateGallery({
         )}
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Deskripsi</Label>
         <Textarea
           id="description"
           name="description"
@@ -88,7 +88,7 @@ export default function CreateGallery({
         )}
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="img_url">Image URL</Label>
+        <Label htmlFor="img_url">Link Gambar</Label>
         <Input
           type="file"
           id="img_url"

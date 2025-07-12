@@ -67,7 +67,7 @@ export default function UpdateGallery({
     <form action={formAction} className="grid gap-4 mt-4">
       <input type="hidden" name="id" value={updateForm.id} />
       <div className="grid gap-2">
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">Judul</Label>
         <Input
           type="text"
           id="title"
@@ -76,14 +76,14 @@ export default function UpdateGallery({
           onChange={(e) =>
             setUpdateForm((prev) => ({ ...prev, title: e.target.value }))
           }
-          placeholder="Enter image title"
+          placeholder="Masukkan judul gambar"
         />
         {state.errors?.title && (
           <p className="text-sm text-destructive">{state.errors.title[0]}</p>
         )}
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Deskripsi</Label>
         <Textarea
           id="description"
           name="description"
@@ -94,7 +94,7 @@ export default function UpdateGallery({
               description: e.target.value,
             }))
           }
-          placeholder="Enter image description"
+          placeholder="Masukkan deskripsi gambar"
           rows={3}
         />
         {state.errors?.description && (
@@ -104,7 +104,7 @@ export default function UpdateGallery({
         )}
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="img_url">Image URL</Label>
+        <Label htmlFor="img_url">Link Gambar</Label>
         <Input
           type="file"
           id="img_url"
