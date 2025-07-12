@@ -43,7 +43,7 @@ export default function CreateGallery({
       setIsUploading(true);
 
       try {
-        const { path, token } = await createImageSignedUrl();
+        const { path, token } = await createImageSignedUrl(Bucket.Gallery);
         const imageUrl = await uploadFileToSignedUrl({
           bucket: Bucket.Gallery,
           file,
