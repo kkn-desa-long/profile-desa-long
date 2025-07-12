@@ -99,8 +99,8 @@ const SIDEBAR_NAV: NavGroup[] = [
         url: "/master/suku",
       },
       {
-        title: "Data Kewarganegaraan",
-        url: "/master/kewarganegaraan",
+        title: "Data Dusun",
+        url: "/master/dusun",
       },
     ],
   },
