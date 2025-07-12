@@ -21,4 +21,24 @@ export const db = {
       return await supabase.from("gallery").delete().eq("id", id);
     },
   },
+  educations: {
+    getAll: async () => {
+      return await supabase.from("education").select();
+    },
+    getById: async (id: string) => {
+      return await supabase.from("education").select().eq("id", id).single();
+    },
+    create: async (educationData: TablesInsert<"education">) => {
+      return await supabase.from("education").insert(educationData);
+    },
+    update: async (id: string, educationData: TablesUpdate<"education">) => {
+      return await supabase
+        .from("education")
+        .update(educationData)
+        .eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("education").delete().eq("id", id);
+    },
+  },
 };
