@@ -40,10 +40,6 @@ const SIDEBAR_NAV: NavGroup[] = [
         title: "Struktur Pemerintahan",
         url: "/pemerintahan",
       },
-      {
-        title: "Sambutan Kepala Desa",
-        url: "/sambutan-kepala-desa",
-      },
     ],
   },
   {
