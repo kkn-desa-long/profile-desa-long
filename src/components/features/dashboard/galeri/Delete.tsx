@@ -1,40 +1,30 @@
 import React from "react";
 import Image from "next/image";
-import { toast } from "sonner";
 import { Tables } from "@/lib/supabase/types";
 import { Button } from "@/components/ui/button";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
 import { AlertDialogFooter } from "@/components/ui/alert-dialog";
-import { deleteGallery } from "./actions";
 
 interface DeleteGalleryProps {
   selectedItem: Tables<"gallery">;
-  onCancel: () => void;
-  onConfirm: () => void;
+  state: {
+    status: string;
+    errors?: {
+      id?: string[];
+    };
+  };
+  formAction: (payload: FormData) => void;
+  isPending: boolean;
+  onCancel?: () => void;
 }
 
 export default function DeleteGallery({
   selectedItem,
+  state,
+  formAction,
+  isPending,
   onCancel,
-  onConfirm,
 }: DeleteGalleryProps) {
-  const [isPending, startTransition] = React.useTransition();
-
-  if (!selectedItem) return null;
-
-  const handleConfirmDelete = () => {
-    startTransition(async () => {
-      const result = await deleteGallery(selectedItem.id);
-
-      if (result.status === "success") {
-        toast.success(result.message);
-        onConfirm();
-      } else {
-        toast.error(result.message);
-      }
-    });
-  };
-
   return (
     <div className="mt-4">
       <div className="flex items-center gap-4 p-4 border rounded-lg">
@@ -53,18 +43,20 @@ export default function DeleteGallery({
           </p>
         </div>
       </div>
-      <AlertDialogFooter className="mt-4">
-        <Button variant="outline" onClick={onCancel}>
-          Batal
-        </Button>
-        <Button
-          variant="destructive"
-          onClick={handleConfirmDelete}
-          loading={isPending}
-        >
-          Hapus
-        </Button>
-      </AlertDialogFooter>
+      <form action={formAction}>
+        <input type="hidden" id="id" name="id" value={selectedItem?.id} />
+        {state.errors?.id && (
+          <p className="text-sm text-destructive">{state.errors.id[0]}</p>
+        )}
+        <AlertDialogFooter className="mt-4">
+          <Button variant="outline" onClick={onCancel}>
+            Batal
+          </Button>
+          <Button type="submit" variant="destructive" loading={isPending}>
+            Hapus
+          </Button>
+        </AlertDialogFooter>
+      </form>
     </div>
   );
 }

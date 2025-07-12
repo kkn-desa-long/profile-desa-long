@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { createImageSignedUrl } from "@/lib/supabase/storage";
 import { uploadFileToSignedUrl } from "@/lib/supabase/client";
 import { AlertDialogFooter } from "@/components/ui/alert-dialog";
+import { PLACEHOLDER_IMG_URL } from "@/constants";
 
 interface CreateGalleryProps {
   state: {
@@ -107,7 +108,12 @@ export default function CreateGallery({
           <div className="grid gap-2">
             <Label>Preview</Label>
             <div className="relative w-full h-32 rounded-md overflow-hidden bg-muted">
-              <Image src={imgUrl} alt="imgUrl" fill className="object-cover" />
+              <Image
+                src={imgUrl || PLACEHOLDER_IMG_URL}
+                alt="imgUrl"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </>

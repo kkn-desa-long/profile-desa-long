@@ -25,7 +25,8 @@ import CreateGallery from "./Create";
 import UpdateGallery from "./Update";
 import DeleteGallery from "./Delete";
 import ActionModal from "../components/ActionModal";
-import { createGallery, updateGallery } from "./actions";
+import { createGallery, deleteGallery, updateGallery } from "./actions";
+import { toast } from "sonner";
 
 export default function GaleriIndex({
   galleryItems,
@@ -52,22 +53,64 @@ export default function GaleriIndex({
     React.useActionState(updateGallery, {
       status: "idle",
     });
+  const [deleteGalleryState, deleteGalleryAction, isPendingDeleteGallery] =
+    React.useActionState(deleteGallery, {
+      status: "idle",
+    });
 
   React.useEffect(() => {
-    if (
-      createGalleryState.status === "success" ||
-      updateGalleryState.status === "success"
-    ) {
+    if (createGalleryState.status === "success") {
       setCreateModalOpen(false);
-      setUpdateModalOpen(false);
-    }
-  }, [createGalleryState, updateGalleryState]);
+      setSelectedItem(null);
 
-  const handleCreate = () => {
+      toast.success(createGalleryState.message);
+    }
+
+    if (
+      createGalleryState.status === "error" ||
+      createGalleryState.status === "validation_error"
+    ) {
+      console.error(createGalleryState.message);
+    }
+  }, [createGalleryState]);
+
+  React.useEffect(() => {
+    if (updateGalleryState.status === "success") {
+      setUpdateModalOpen(false);
+      setSelectedItem(null);
+
+      toast.success(updateGalleryState.message);
+    }
+
+    if (
+      updateGalleryState.status === "error" ||
+      updateGalleryState.status === "validation_error"
+    ) {
+      console.error(updateGalleryState.message);
+    }
+  }, [updateGalleryState]);
+
+  React.useEffect(() => {
+    if (deleteGalleryState.status === "success") {
+      setDeleteModalOpen(false);
+      setSelectedItem(null);
+
+      toast.success(deleteGalleryState.message);
+    }
+
+    if (
+      deleteGalleryState.status === "error" ||
+      deleteGalleryState.status === "validation_error"
+    ) {
+      console.error(deleteGalleryState.message);
+    }
+  }, [deleteGalleryState]);
+
+  const handleClickCreate = () => {
     setCreateModalOpen(true);
   };
 
-  const handleUpdate = (item: Tables<"gallery">) => {
+  const handleClickUpdate = (item: Tables<"gallery">) => {
     setSelectedItem(item);
     setUpdateForm({
       id: item.id,
@@ -78,14 +121,9 @@ export default function GaleriIndex({
     setUpdateModalOpen(true);
   };
 
-  const handleDelete = (item: Tables<"gallery">) => {
+  const handleClickDelete = (item: Tables<"gallery">) => {
     setSelectedItem(item);
     setDeleteModalOpen(true);
-  };
-
-  const handleConfirmDelete = () => {
-    setDeleteModalOpen(false);
-    setSelectedItem(null);
   };
 
   return (
@@ -102,7 +140,7 @@ export default function GaleriIndex({
               </CardDescription>
             </div>
             <Button
-              onClick={handleCreate}
+              onClick={handleClickCreate}
               className="bg-emerald-600 hover:bg-emerald-700"
             >
               <Plus className="w-4 h-4 mr-2" />
@@ -125,6 +163,17 @@ export default function GaleriIndex({
                 </TableRow>
               </TableHeader>
               <TableBody>
+                {galleryItems.length === 0 && (
+                  <TableRow>
+                    <TableCell
+                      colSpan={5}
+                      className="h-24 text-muted-foreground italic text-center"
+                    >
+                      Tidak ada data
+                    </TableCell>
+                  </TableRow>
+                )}
+
                 {galleryItems.map((item, index) => (
                   <TableRow key={item.id}>
                     <TableCell className="font-medium">{index + 1}</TableCell>
@@ -148,7 +197,7 @@ export default function GaleriIndex({
                       <div className="flex items-center gap-2">
                         <Button
                           size="icon"
-                          onClick={() => handleUpdate(item)}
+                          onClick={() => handleClickUpdate(item)}
                           className="h-8 w-8 bg-yellow-600 hover:bg-yellow-600/60"
                         >
                           <Edit className="h-4 w-4" />
@@ -156,7 +205,7 @@ export default function GaleriIndex({
                         </Button>
                         <Button
                           size="icon"
-                          onClick={() => handleDelete(item)}
+                          onClick={() => handleClickDelete(item)}
                           className="h-8 w-8 bg-destructive hover:bg-destructive/60"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -217,8 +266,10 @@ export default function GaleriIndex({
         {selectedItem && (
           <DeleteGallery
             selectedItem={selectedItem}
+            state={deleteGalleryState}
+            formAction={deleteGalleryAction}
+            isPending={isPendingDeleteGallery}
             onCancel={() => setDeleteModalOpen(false)}
-            onConfirm={handleConfirmDelete}
           />
         )}
       </ActionModal>

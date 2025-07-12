@@ -8,6 +8,7 @@ export type GalleryState = {
   status: "idle" | "success" | "error" | "validation_error";
   message?: string;
   errors?: {
+    id?: string[];
     title?: string[];
     description?: string[];
     img_url?: string[];
@@ -23,6 +24,8 @@ const GallerySchema = z.object({
 
 const CreateGallerySchema = GallerySchema.omit({ id: true });
 
+const DeleteGallerySchema = GallerySchema.pick({ id: true });
+
 async function createGallery(
   _prevState: GalleryState,
   formData: FormData
@@ -37,6 +40,7 @@ async function createGallery(
     return {
       status: "validation_error",
       errors: validatedFields.error.flatten().fieldErrors,
+      message: validatedFields.error.message,
     };
   }
 
@@ -84,6 +88,7 @@ async function updateGallery(
     return {
       status: "validation_error",
       errors: validatedFields.error.flatten().fieldErrors,
+      message: validatedFields.error.message,
     };
   }
 
@@ -116,13 +121,23 @@ async function updateGallery(
   };
 }
 
-export async function deleteGallery(id: string): Promise<GalleryState> {
-  if (!id) {
+async function deleteGallery(
+  _prevState: GalleryState,
+  formData: FormData
+): Promise<GalleryState> {
+  const validatedFields = DeleteGallerySchema.safeParse({
+    id: formData.get("id"),
+  });
+
+  if (!validatedFields.success) {
     return {
-      status: "error",
-      message: "ID item tidak valid.",
+      status: "validation_error",
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: validatedFields.error.message,
     };
   }
+
+  const { id } = validatedFields.data;
 
   try {
     const { error } = await db.gallery.delete(id);
@@ -132,6 +147,7 @@ export async function deleteGallery(id: string): Promise<GalleryState> {
     }
   } catch (error) {
     console.error(error);
+
     return {
       status: "error",
       message: "Gagal Menghapus! Silahkan Coba Beberapa Saat Lagi",
@@ -146,4 +162,4 @@ export async function deleteGallery(id: string): Promise<GalleryState> {
   };
 }
 
-export { createGallery, updateGallery };
+export { createGallery, updateGallery, deleteGallery };
