@@ -41,4 +41,21 @@ export const db = {
       return await supabase.from("education").delete().eq("id", id);
     },
   },
+  jobs: {
+    getAll: async () => {
+      return await supabase.from("jobs").select();
+    },
+    getById: async (id: string) => {
+      return await supabase.from("jobs").select().eq("id", id).single();
+    },
+    create: async (jobsData: TablesInsert<"jobs">) => {
+      return await supabase.from("jobs").insert(jobsData);
+    },
+    update: async (id: string, jobsData: TablesUpdate<"jobs">) => {
+      return await supabase.from("jobs").update(jobsData).eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("jobs").delete().eq("id", id);
+    },
+  },
 };
