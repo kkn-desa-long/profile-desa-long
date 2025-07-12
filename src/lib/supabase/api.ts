@@ -75,4 +75,35 @@ export const db = {
       return await supabase.from("age_range").delete().eq("id", id);
     },
   },
+  villageGovernment: {
+    getAll: async () => {
+      return await supabase.from("village_government").select();
+    },
+    getById: async (id: string) => {
+      return await supabase
+        .from("village_government")
+        .select()
+        .eq("id", id)
+        .single();
+    },
+    create: async (
+      villageGovernmentData: TablesInsert<"village_government">
+    ) => {
+      return await supabase
+        .from("village_government")
+        .insert(villageGovernmentData);
+    },
+    update: async (
+      id: string,
+      villageGovernmentData: TablesUpdate<"village_government">
+    ) => {
+      return await supabase
+        .from("village_government")
+        .update(villageGovernmentData)
+        .eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("village_government").delete().eq("id", id);
+    },
+  },
 };
