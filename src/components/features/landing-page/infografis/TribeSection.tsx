@@ -30,7 +30,7 @@ export default function TribeSection() {
         <CardTitle className="text-2xl font-bold">Data Suku</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer className="min-h-164 max-w-full" config={chartConfig}>
           <BarChart
             accessibilityLayer
             data={villagesTribe}

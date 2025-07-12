@@ -16,8 +16,8 @@ export default function JobSection() {
       <CardHeader>
         <CardTitle className="text-2xl font-bold">Data Pekerjaan</CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-4 gap-6 items-start">
-        <div>
+      <CardContent className="lg:grid grid-cols-4 gap-6 space-y-2 items-start">
+        <div className="lg:col-span-2 xl:col-span-1">
           <div className="bg-slate-200">
             <div className="flex justify-between items-center px-4 pt-3">
               <h3 className="text-lg font-semibold">Jenis Pekerjaan</h3>
@@ -37,7 +37,7 @@ export default function JobSection() {
             ))}
           </ScrollArea>
         </div>
-        <div className="grid grid-cols-1 items-start sm:grid-cols-2 lg:grid-cols-3 gap-4 col-span-3">
+        <div className="grid grid-cols-1 items-start lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:col-span-2 xl:col-span-3">
           {highestData.map((value) => (
             <div key={value.id} className="p-4 bg-gray-100 rounded-lg shadow">
               <h3 className="text-lg font-semibold">{value.job}</h3>

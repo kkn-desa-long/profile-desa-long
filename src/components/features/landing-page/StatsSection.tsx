@@ -36,8 +36,8 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className="py-24 px-24 bg-white">
-      <div className="flex justify-between items-center mb-12">
+    <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
+      <div className="flex flex-wrap gap-4 justify-between items-center mb-12">
         <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
           Data Penduduk
         </h2>
@@ -51,7 +51,7 @@ export default function StatsSection() {
           </Button>
         </Link>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <StatsCard
           amount={numberOfCitizens}
           icon={

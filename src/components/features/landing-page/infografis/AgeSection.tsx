@@ -11,26 +11,7 @@ import {
 
 import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts";
 import { villagersAge } from "@/constants/data";
-
-// const chartData = [
-//   {
-//     title: "chrome",
-//     visitors: 275,
-//     outsider: 200,
-//   },
-//   {
-//     title: "safari",
-//     visitors: 200,
-//     outsider: 200,
-//   },
-//   {
-//     title: "firefox",
-//     visitors: 187,
-//     outsider: 200,
-//   },
-//   { title: "edge", visitors: 173, outsider: 200 },
-//   { title: "other", visitors: 90, outsider: 200 },
-// ];
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const chartConfig = {
   numberOfMale: {
@@ -42,35 +23,60 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function AgeSection() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Card className="">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">Data Kelompok Umur</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="max-h-96 w-full">
-          <BarChart accessibilityLayer data={villagersAge}>
-            <XAxis
-              dataKey="ageRange"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-            />
-            <YAxis dataKey="numberOfMale" tickFormatter={(value) => value} />
+        <ChartContainer
+          config={chartConfig}
+          className="min-h-164 max-h-164 w-full"
+        >
+          <BarChart
+            accessibilityLayer
+            data={villagersAge}
+            layout={isMobile ? "vertical" : "horizontal"}
+          >
+            {isMobile ? (
+              <>
+                <XAxis type="number" hide />
+                <YAxis
+                  dataKey="ageRange"
+                  type="category"
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                />
+              </>
+            ) : (
+              <>
+                <XAxis
+                  dataKey="ageRange"
+                  type="category"
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                />
+                <YAxis type="number" hide />
+              </>
+            )}
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <ChartLegend content={<ChartLegendContent payload={1} />} />
             <Bar dataKey="numberOfMale" fill="var(--color-blue-500)" radius={5}>
-              <LabelList position="top" fontSize={12} />
+              <LabelList position={isMobile ? "right" : "top"} fontSize={12} />
             </Bar>
             <Bar
               dataKey="numberOfFemale"
               fill="var(--color-red-400)"
               radius={5}
             >
-              <LabelList position="top" fontSize={12} />
+              <LabelList position={isMobile ? "right" : "top"} fontSize={12} />
             </Bar>
           </BarChart>
         </ChartContainer>

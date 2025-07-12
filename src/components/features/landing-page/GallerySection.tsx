@@ -15,8 +15,8 @@ import React from "react";
 
 export default function GallerySection() {
   return (
-    <section className="py-24 px-24 bg-white">
-      <div className="flex justify-between items-center mb-12">
+    <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
+      <div className="flex flex-wrap gap-4 justify-between items-center mb-12">
         <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
           Jelajahi Desa Kami
         </h2>
@@ -33,11 +33,14 @@ export default function GallerySection() {
       <Carousel>
         <CarouselContent className="-ml-1">
           {Array.from({ length: 6 }).map((_, index) => (
-            <CarouselItem className="basis-1/3 px-2" key={index}>
+            <CarouselItem
+              className="md:basis-1/2 lg:basis-1/3 px-2"
+              key={index}
+            >
               <Link href={`/galeri/${index}`}>
                 <Card>
                   <CardHeader>
-                    <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4">
+                    <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4 border-2">
                       <Image
                         src={PLACEHOLDER_IMG_URL}
                         fill

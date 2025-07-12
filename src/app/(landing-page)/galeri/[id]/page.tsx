@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Component() {
   return (
-    <section className="py-12 px-24">
+    <section className="py-6 px-4 md:py-12 md:px-12 lg:px-24">
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
@@ -33,7 +33,7 @@ export default function Component() {
       </div>
       <div className="mt-12">
         <h2 className="text-2xl font-bold mb-6">Terbaru</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((item) => (
             <Link key={item} href={`/galeri/${item}`}>
               <Card className="">

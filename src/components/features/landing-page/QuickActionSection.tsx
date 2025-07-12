@@ -5,8 +5,8 @@ import React from "react";
 
 export default function QuickActionSection() {
   return (
-    <section className="py-24 px-24 bg-white">
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <Link href={"/profil"}>
           <Card className="hover:shadow-lg transition-shadow text-slate-500 hover:text-slate-700 cursor-pointer">
             <CardContent className="flex flex-col items-center gap-4">

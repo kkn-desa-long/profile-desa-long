@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Component() {
   return (
-    <section className="py-12 px-24">
+    <section className="py-6 px-4 md:py-12 md:px-12 lg:px-24">
       <h1 className="text-4xl font-bold mb-12 text-center">
         Infografis Desa Long
       </h1>

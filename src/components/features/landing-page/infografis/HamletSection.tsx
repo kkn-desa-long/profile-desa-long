@@ -64,10 +64,10 @@ export default function HamletSection() {
           Data Penduduk Per Dusun
         </CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-4">
+      <CardContent className="grid md:grid-cols-4">
         <ChartContainer
           config={chartConfig}
-          className="col-span-4 md:col-span-3 lg:col-span-2"
+          className="md:col-span-3 lg:col-span-2"
         >
           <PieChart>
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
@@ -77,7 +77,7 @@ export default function HamletSection() {
             />
           </PieChart>
         </ChartContainer>
-        <div>
+        <div className="mt-2">
           <h3 className="text-xl font-semibold">Keterangan</h3>
           <ul>
             {chartData.map((value) => (
