@@ -58,4 +58,21 @@ export const db = {
       return await supabase.from("jobs").delete().eq("id", id);
     },
   },
+  ageRange: {
+    getAll: async () => {
+      return await supabase.from("age_range").select();
+    },
+    getById: async (id: string) => {
+      return await supabase.from("age_range").select().eq("id", id).single();
+    },
+    create: async (ageRangeData: TablesInsert<"age_range">) => {
+      return await supabase.from("age_range").insert(ageRangeData);
+    },
+    update: async (id: string, ageRangeData: TablesUpdate<"age_range">) => {
+      return await supabase.from("age_range").update(ageRangeData).eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("age_range").delete().eq("id", id);
+    },
+  },
 };

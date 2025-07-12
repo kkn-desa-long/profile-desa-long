@@ -1,5 +1,8 @@
 import React from "react";
+import AgeRangeIndex from "@/components/features/dashboard/rentang-usia";
+import { db } from "@/lib/supabase/api";
 
-export default function MasterRentangUsia() {
-  return <div>MasterRentangUsia</div>;
+export default async function MasterRentangUsia() {
+  const { data: ageRange } = await db.ageRange.getAll();
+  return <AgeRangeIndex ageRange={ageRange || []} />;
 }
