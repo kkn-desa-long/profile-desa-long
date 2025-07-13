@@ -17,6 +17,54 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Desa Long | Kabupaten Donggala",
   description: "Situs Informasi & Profil Desa Long Kabupaten Donggala",
+  keywords: [
+    "Desa Long",
+    "Kecamatan Dampelas",
+    "Kabupaten Donggala",
+    "Sulawesi Tengah",
+    "Pemerintah Desa Long",
+    "Website Desa Long",
+    "Situs Desa Long",
+    "Informasi Desa Long",
+    "Profil Desa Long",
+    "Long Village",
+    "Dampelas",
+    "Donggala",
+    "website desa",
+  ],
+  authors: [
+    { name: "Pemerintah Desa Long", url: "https://www.desalong.web.id" },
+  ],
+  creator: "Pemerintah Desa Long",
+  publisher: "Pemerintah Desa Long",
+  metadataBase: new URL("https://www.desalong.web.id"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Situs Resmi Desa Long - Kecamatan Dampelas, Kabupaten Donggala",
+    description:
+      "Situs resmi Pemerintah Desa Long, Kecamatan Dampelas, Kabupaten Donggala. Temukan informasi terbaru seputar informasi dan profil desa.cc",
+    url: "https://www.desalong.web.id",
+    siteName: "Website Resmi Desa Long",
+    type: "website",
+    locale: "id_ID",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Pemandangan Desa Long, Kecamatan Dampelas",
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
