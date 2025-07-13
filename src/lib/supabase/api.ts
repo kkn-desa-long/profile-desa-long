@@ -58,6 +58,40 @@ export const db = {
       return await supabase.from("jobs").delete().eq("id", id);
     },
   },
+  tribes: {
+    getAll: async () => {
+      return await supabase.from("tribes").select();
+    },
+    getById: async (id: string) => {
+      return await supabase.from("tribes").select().eq("id", id).single();
+    },
+    create: async (tribesData: TablesInsert<"tribes">) => {
+      return await supabase.from("tribes").insert(tribesData);
+    },
+    update: async (id: string, tribesData: TablesUpdate<"tribes">) => {
+      return await supabase.from("tribes").update(tribesData).eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("tribes").delete().eq("id", id);
+    },
+  },
+  hamlets: {
+    getAll: async () => {
+      return await supabase.from("hamlets").select();
+    },
+    getById: async (id: string) => {
+      return await supabase.from("hamlets").select().eq("id", id).single();
+    },
+    create: async (hamletsData: TablesInsert<"hamlets">) => {
+      return await supabase.from("hamlets").insert(hamletsData);
+    },
+    update: async (id: string, hamletsData: TablesUpdate<"hamlets">) => {
+      return await supabase.from("hamlets").update(hamletsData).eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("hamlets").delete().eq("id", id);
+    },
+  },
   ageRange: {
     getAll: async () => {
       return await supabase.from("age_range").select();
@@ -73,6 +107,33 @@ export const db = {
     },
     delete: async (id: string) => {
       return await supabase.from("age_range").delete().eq("id", id);
+    },
+  },
+  marriageStatus: {
+    getAll: async () => {
+      return await supabase.from("marriage_status").select();
+    },
+    getById: async (id: string) => {
+      return await supabase
+        .from("marriage_status")
+        .select()
+        .eq("id", id)
+        .single();
+    },
+    create: async (marriageStatusData: TablesInsert<"marriage_status">) => {
+      return await supabase.from("marriage_status").insert(marriageStatusData);
+    },
+    update: async (
+      id: string,
+      marriageStatusData: TablesUpdate<"marriage_status">
+    ) => {
+      return await supabase
+        .from("marriage_status")
+        .update(marriageStatusData)
+        .eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("marriage_status").delete().eq("id", id);
     },
   },
   villageGovernment: {
