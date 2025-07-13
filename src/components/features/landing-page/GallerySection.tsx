@@ -4,8 +4,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  CarouselNavigation,
 } from "@/components/ui/carousel";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
 import { db } from "@/lib/supabase/api";
@@ -64,8 +63,9 @@ export default async function GallerySection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <div className="flex items-center justify-center gap-2 mt-3">
+          <CarouselNavigation size="lg" className="border-black" />
+        </div>
       </Carousel>
     </section>
   );
