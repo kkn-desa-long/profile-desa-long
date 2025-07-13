@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { PLACEHOLDER_IMG_URL } from "@/constants";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -36,7 +35,7 @@ export default function HeroSection() {
         </div>
         <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4 border-2">
           <Image
-            src={PLACEHOLDER_IMG_URL}
+            src={"/kantor-desa.jpeg"}
             fill
             alt="gambar"
             className="object-cover"

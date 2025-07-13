@@ -8,12 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
+import { db } from "@/lib/supabase/api";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function GallerySection() {
+export default async function GallerySection() {
+  const { data: gallery } = await db.gallery.getAll();
   return (
     <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
       <div className="flex flex-wrap gap-4 justify-between items-center mb-12">
@@ -32,30 +34,29 @@ export default function GallerySection() {
       </div>
       <Carousel>
         <CarouselContent className="-ml-1">
-          {Array.from({ length: 6 }).map((_, index) => (
+          {gallery?.map((value) => (
             <CarouselItem
               className="md:basis-1/2 lg:basis-1/3 px-2"
-              key={index}
+              key={value.id}
             >
-              <Link href={`/galeri/${index}`}>
+              <Link href={`/galeri/${value.id}`}>
                 <Card>
                   <CardHeader>
                     <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4 border-2">
                       <Image
-                        src={PLACEHOLDER_IMG_URL}
+                        src={value.img_url || PLACEHOLDER_IMG_URL}
                         fill
-                        alt="gambar"
+                        alt={value.title}
                         className="object-cover"
                       />
                     </div>
                     <CardTitle className="text-2xl font-semibold">
-                      E-Government
+                      {value.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-slate-600 leading-relaxed">
-                      Layanan administrasi digital 24/7 untuk kemudahan akses
-                      dokumen kependudukan
+                    <p className="text-slate-600 leading-relaxed line-clamp-2">
+                      {value.description || "Tidak ada deskripsi"}
                     </p>
                   </CardContent>
                 </Card>

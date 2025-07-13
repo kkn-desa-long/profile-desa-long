@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PLACEHOLDER_IMG_URL } from "@/constants";
 import Image from "next/image";
 
 export default function OrganizationSection() {
@@ -28,7 +27,7 @@ export default function OrganizationSection() {
                 value="pemerintah-desa"
                 className="text-lg font-semibold"
               >
-                Struktur Pemerintah Desa
+                Struktur Pemerintah Desa (RT)
               </TabsTrigger>
               <TabsTrigger value="lpm" className="text-lg font-semibold">
                 Struktur LPM
@@ -40,10 +39,10 @@ export default function OrganizationSection() {
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
           <TabsContent value="organisasi-desa">
-            <a href={PLACEHOLDER_IMG_URL} target="_blank">
+            <a href={"/aparat.png"} target="_blank">
               <div className="border-2 relative w-full aspect-video overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={PLACEHOLDER_IMG_URL}
+                  src={"/aparat.png"}
                   fill
                   alt="gambar"
                   className="object-cover"
@@ -52,10 +51,10 @@ export default function OrganizationSection() {
             </a>
           </TabsContent>
           <TabsContent value="bpd">
-            <a href={PLACEHOLDER_IMG_URL} target="_blank">
+            <a href={"/bpd.png"} target="_blank">
               <div className="border-2 relative w-full aspect-video overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={PLACEHOLDER_IMG_URL}
+                  src={"/bpd.png"}
                   fill
                   alt="gambar"
                   className="object-cover"
@@ -64,10 +63,10 @@ export default function OrganizationSection() {
             </a>
           </TabsContent>
           <TabsContent value="pemerintah-desa">
-            <a href={PLACEHOLDER_IMG_URL} target="_blank">
+            <a href={"/rt.png"} target="_blank">
               <div className="border-2 relative w-full aspect-video overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={PLACEHOLDER_IMG_URL}
+                  src={"/rt.png"}
                   fill
                   alt="gambar"
                   className="object-cover"
@@ -76,10 +75,10 @@ export default function OrganizationSection() {
             </a>
           </TabsContent>
           <TabsContent value="lpm">
-            <a href={PLACEHOLDER_IMG_URL} target="_blank">
+            <a href={"/lpm.png"} target="_blank">
               <div className="border-2 relative w-full aspect-video overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={PLACEHOLDER_IMG_URL}
+                  src={"/lpm.png"}
                   fill
                   alt="gambar"
                   className="object-cover"
@@ -88,10 +87,10 @@ export default function OrganizationSection() {
             </a>
           </TabsContent>
           <TabsContent value="pkk">
-            <a href={PLACEHOLDER_IMG_URL} target="_blank">
+            <a href={"/pkk.png"} target="_blank">
               <div className="border-2 relative w-full aspect-video overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={PLACEHOLDER_IMG_URL}
+                  src={"/pkk.png"}
                   fill
                   alt="gambar"
                   className="object-cover"

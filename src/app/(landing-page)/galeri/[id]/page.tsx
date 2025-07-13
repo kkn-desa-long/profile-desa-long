@@ -1,32 +1,34 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
+import { db } from "@/lib/supabase/api";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Component() {
+export default async function Component({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { data: gallery } = await db.gallery.getById(params.id);
   return (
     <section className="py-6 px-4 md:py-12 md:px-12 lg:px-24">
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
             <Image
-              src={PLACEHOLDER_IMG_URL}
-              alt={"galleryItem.title"}
+              src={gallery.img_url || PLACEHOLDER_IMG_URL}
+              alt={gallery.title}
               fill
               className="object-cover"
-              priority
+              unoptimized
             />
           </div>
         </div>
         <div className="space-y-6">
-          <h1 className="text-3xl font-bold leading-tight">Judul</h1>
-
+          <h1 className="text-3xl font-bold leading-tight">{gallery.title}</h1>
           <div className="space-y-3">
             <p className="text-muted-foreground leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              soluta deleniti iure sunt eaque perspiciatis porro! Quasi id
-              debitis autem culpa non odit quis totam, omnis consequuntur
-              voluptatum aliquid magnam.
+              {gallery.description || "Tidak ada deskripsi"}
             </p>
           </div>
         </div>
