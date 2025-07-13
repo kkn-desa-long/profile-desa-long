@@ -33,10 +33,15 @@ export const metadata: Metadata = {
     "website desa",
   ],
   authors: [
-    { name: "Pemerintah Desa Long", url: "https://www.desalong.web.id" },
+    {
+      name: "Mahasiswa KKN 112 Universitas Tadulako | Desa Long Kabupaten Donggala",
+      url: "https://www.desalong.web.id",
+    },
   ],
-  creator: "Pemerintah Desa Long",
-  publisher: "Pemerintah Desa Long",
+  creator:
+    "Mahasiswa KKN 112 Universitas Tadulako | Desa Long Kabupaten Donggala",
+  publisher:
+    "Mahasiswa KKN 112 Universitas Tadulako | Desa Long Kabupaten Donggala",
   metadataBase: new URL("https://www.desalong.web.id"),
   alternates: {
     canonical: "/",
