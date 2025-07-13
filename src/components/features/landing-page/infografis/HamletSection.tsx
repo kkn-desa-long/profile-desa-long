@@ -72,9 +72,7 @@ export default function HamletSection() {
           <PieChart>
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <Pie data={chartData} dataKey="total" label nameKey="name" />
-            <ChartLegend
-              content={<ChartLegendContent nameKey="name" payload={1} />}
-            />
+            <ChartLegend content={<ChartLegendContent nameKey="name" />} />
           </PieChart>
         </ChartContainer>
         <div className="mt-2">

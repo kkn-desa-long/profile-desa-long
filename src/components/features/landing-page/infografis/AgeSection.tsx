@@ -67,7 +67,7 @@ export default function AgeSection() {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <ChartLegend content={<ChartLegendContent payload={1} />} />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar dataKey="numberOfMale" fill="var(--color-blue-500)" radius={5}>
               <LabelList position={isMobile ? "right" : "top"} fontSize={12} />
             </Bar>
