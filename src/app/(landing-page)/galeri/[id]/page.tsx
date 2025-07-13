@@ -1,8 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
 import { db } from "@/lib/supabase/api";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Component({
   params,
@@ -33,7 +31,7 @@ export default async function Component({
           </div>
         </div>
       </div>
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <h2 className="text-2xl font-bold mb-6">Terbaru</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((item) => (
@@ -62,7 +60,7 @@ export default async function Component({
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
