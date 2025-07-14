@@ -167,4 +167,35 @@ export const db = {
       return await supabase.from("village_government").delete().eq("id", id);
     },
   },
+  population: {
+    getAll: async () => {
+      return await supabase.from("villagers_population").select(`id,
+          number_of_male,
+          number_of_female,
+          number_of_head_family,
+          number_of_family_member,
+          hamlet_id,
+          created_at,
+          hamlets ( name )`);
+    },
+    getById: async (id: string) => {
+      return await supabase
+        .from("villagers_population")
+        .select()
+        .eq("id", id)
+        .single();
+    },
+    create: async (data: TablesInsert<"villagers_population">) => {
+      return await supabase.from("villagers_population").insert(data);
+    },
+    update: async (id: string, data: TablesUpdate<"villagers_population">) => {
+      return await supabase
+        .from("villagers_population")
+        .update(data)
+        .eq("id", id);
+    },
+    delete: async (id: string) => {
+      return await supabase.from("villagers_population").delete().eq("id", id);
+    },
+  },
 };

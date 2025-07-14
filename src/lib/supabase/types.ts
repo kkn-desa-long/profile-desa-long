@@ -363,6 +363,9 @@ export type Database = {
           number_of_female: number;
           number_of_head_family: number;
           number_of_male: number;
+          hamlets: {
+            name: string;
+          };
         };
         Insert: {
           created_at?: string;
