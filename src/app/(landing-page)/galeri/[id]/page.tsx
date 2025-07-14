@@ -18,7 +18,6 @@ export default async function Component({
               alt={gallery?.title || ""}
               fill
               className="object-cover"
-              unoptimized
             />
           </div>
         </div>
@@ -31,36 +30,6 @@ export default async function Component({
           </div>
         </div>
       </div>
-      {/* <div className="mt-12">
-        <h2 className="text-2xl font-bold mb-6">Terbaru</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((item) => (
-            <Link key={item} href={`/galeri/${item}`}>
-              <Card className="">
-                <CardHeader>
-                  <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-4">
-                    <Image
-                      src={PLACEHOLDER_IMG_URL}
-                      fill
-                      alt="gambar"
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardTitle className="text-2xl font-semibold">
-                    Judul
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600 leading-relaxed">
-                    Layanan administrasi digital 24/7 untuk kemudahan akses
-                    dokumen kependudukan
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </div> */}
     </section>
   );
 }
