@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default async function Component() {
   const { data: gallery } = await db.gallery.getAll();
+
   return (
     <section className="py-6 px-4 md:py-12 md:px-12 lg:px-24 min-h-screen">
       <h2 className="text-2xl font-bold mb-6">Galeri</h2>

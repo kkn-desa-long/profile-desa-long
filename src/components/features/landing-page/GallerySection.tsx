@@ -15,6 +15,7 @@ import React from "react";
 
 export default async function GallerySection() {
   const { data: gallery } = await db.gallery.getAll();
+
   return (
     <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
       <div className="flex flex-wrap gap-4 justify-between items-center mb-12">

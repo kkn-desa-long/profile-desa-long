@@ -7,6 +7,7 @@ import { db } from "@/lib/supabase/api";
 
 export default async function OrganizationSection() {
   const { data } = await db.villageGovernment.getAll();
+  
   return (
     <Card className="">
       <CardHeader>
