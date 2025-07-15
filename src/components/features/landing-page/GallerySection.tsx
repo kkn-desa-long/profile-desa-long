@@ -7,15 +7,17 @@ import {
   CarouselNavigation,
 } from "@/components/ui/carousel";
 import { PLACEHOLDER_IMG_URL } from "@/constants";
-import { db } from "@/lib/supabase/api";
+import { Tables } from "@/lib/supabase/types";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default async function GallerySection() {
-  const { data: gallery } = await db.gallery.getAll();
-
+export default function GallerySection({
+  gallery,
+}: {
+  gallery: Tables<"gallery">[];
+}) {
   return (
     <section className="py-6 px-4 md:py-12 md:px-12 lg:py-24 lg:px-24 bg-white">
       <div className="flex flex-wrap gap-4 justify-between items-center mb-12">

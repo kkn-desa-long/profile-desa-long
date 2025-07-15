@@ -3,11 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import { db } from "@/lib/supabase/api";
+import { Tables } from "@/lib/supabase/types";
 
-export default async function OrganizationSection() {
-  const { data } = await db.villageGovernment.getAll();
-  
+export default async function OrganizationSection({data}: {data: Tables<"village_government">[]}) {
   return (
     <Card className="">
       <CardHeader>
