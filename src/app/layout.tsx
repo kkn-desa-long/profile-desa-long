@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Situs Resmi Desa Long - Kecamatan Dampelas, Kabupaten Donggala",
     description:
-      "Situs resmi Pemerintah Desa Long, Kecamatan Dampelas, Kabupaten Donggala. Temukan informasi terbaru seputar informasi dan profil desa.cc",
+      "Situs resmi Pemerintah Desa Long, Kecamatan Dampelas, Kabupaten Donggala. Temukan informasi terbaru seputar informasi dan profil desa",
     url: "https://www.desalong.web.id",
     siteName: "Website Resmi Desa Long",
     type: "website",
