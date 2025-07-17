@@ -31,7 +31,9 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-              <span className="text-slate-400">+62 21 1234-5678</span>
+              <span className="text-slate-400">
+                +62 822-9676-0716 (Operator Desa Long)
+              </span>
             </div>
           </div>
         </div>
@@ -50,9 +52,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p className="text-slate-400">
-          © 2025 Desa Long. KKN UNTAD 112.
-        </p>
+        <p className="text-slate-400">© 2025 Desa Long. KKN UNTAD 112.</p>
       </div>
     </footer>
   );
