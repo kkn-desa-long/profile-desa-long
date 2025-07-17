@@ -60,10 +60,24 @@ export const metadata: Metadata = {
     locale: "id_ID",
     images: [
       {
-        url: "https://www.desalong.web.id/og.png",
+        url: "https://www.desalong.web.id/og.webp",
         width: 1200,
         height: 630,
         alt: "Pemandangan Desa Long, Kecamatan Dampelas",
+      },
+    ],
+  },
+  twitter: {
+    title: "Situs Resmi Desa Long - Kecamatan Dampelas, Kabupaten Donggala",
+    description:
+      "Situs resmi Pemerintah Desa Long, Kecamatan Dampelas, Kabupaten Donggala. Temukan informasi terbaru seputar informasi dan profil desa",
+    card: "summary_large_image",
+    images: [
+      {
+        url: "https://www.desalong.web.id/og.webp",
+        width: 1200,
+        height: 630,
+        type: "image/webp",
       },
     ],
   },
