@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "id_ID",
     images: [
       {
-        url: "/og.png",
+        url: "https://www.desalong.web.id/og.png",
         width: 1200,
         height: 630,
         alt: "Pemandangan Desa Long, Kecamatan Dampelas",
