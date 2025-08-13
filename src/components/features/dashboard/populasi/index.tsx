@@ -153,16 +153,16 @@ export default function PopulationIndex({
           <div className="flex items-center justify-between">
             <div>
               <CardTitle className="text-2xl font-bold">
-                Manajemen Daftar Suku
+                Manajemen Daftar Populasi
               </CardTitle>
-              <CardDescription>Kelola daftar suku</CardDescription>
+              <CardDescription>Kelola daftar populasi</CardDescription>
             </div>
             <Button
               onClick={handleClickCreate}
               className="bg-emerald-600 hover:bg-emerald-700"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Tambah Suku Baru
+              Tambah Populasi Baru
             </Button>
           </div>
         </CardHeader>
@@ -242,8 +242,8 @@ export default function PopulationIndex({
       <ActionModal
         isOpen={createModalOpen}
         onOpenChange={setCreateModalOpen}
-        title="Tambahkan Item Suku Baru"
-        description="Isi formulir di bawah ini untuk menambahkan item suku baru."
+        title="Tambahkan Item Populasi Baru"
+        description="Isi formulir di bawah ini untuk menambahkan item populasi baru."
       >
         <CreatePopulation
           state={createPopulationState}
@@ -259,8 +259,8 @@ export default function PopulationIndex({
         size="md"
         isOpen={updateModalOpen}
         onOpenChange={setUpdateModalOpen}
-        title="Perbarui Item Suku"
-        description="Buat perubahan pada formulir di bawah ini untuk memperbarui item suku."
+        title="Perbarui Item Populasi"
+        description="Buat perubahan pada formulir di bawah ini untuk memperbarui item populasi."
       >
         <UpdatePopulation
           state={updatePopulationState}
@@ -278,7 +278,7 @@ export default function PopulationIndex({
         size="md"
         isOpen={deleteModalOpen}
         onOpenChange={setDeleteModalOpen}
-        title="Hapus Item Suku"
+        title="Hapus Item Populasi"
         description={`Apakah Anda yakin ingin menghapus data ini?
               Tindakan ini tidak dapat dibatalkan.`}
       >
