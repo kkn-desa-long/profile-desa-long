@@ -5,7 +5,7 @@ import QuickActionSection from "@/components/features/landing-page/QuickActionSe
 import StatsSection from "@/components/features/landing-page/StatsSection";
 import { db } from "@/lib/supabase/api";
 
-export default async function Component() {
+export default async function LandingPage() {
   const { data: gallery } = await db.gallery.getAll();
   return (
     <>

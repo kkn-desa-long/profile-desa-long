@@ -4,7 +4,7 @@ import { db } from "@/lib/supabase/api";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Component() {
+export default async function GalleryPage() {
   const { data: gallery } = await db.gallery.getAll();
 
   return (

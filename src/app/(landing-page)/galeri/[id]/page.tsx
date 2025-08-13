@@ -2,7 +2,7 @@ import { PLACEHOLDER_IMG_URL } from "@/constants";
 import { db } from "@/lib/supabase/api";
 import Image from "next/image";
 
-export default async function Component({
+export default async function GalleryDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
